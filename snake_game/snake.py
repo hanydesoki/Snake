@@ -1,6 +1,6 @@
 import pygame
-from utils import check_similar_element, check_boundaries, check_apple_in_grid
-from tools import display_text
+from .utils import check_similar_element, check_boundaries, check_apple_in_grid
+from .tools import display_text
 
 class Snake:
 

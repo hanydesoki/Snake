@@ -1,7 +1,7 @@
 import json
 import os
 import pygame
-from tools import Button, display_text
+from .tools import Button, display_text
 
 SCORE_PATH = 'scores.json'
 COLOR_PATH = 'snake_color.json'

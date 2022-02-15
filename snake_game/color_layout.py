@@ -1,5 +1,5 @@
 import pygame
-from tools import SlideBar, display_text, Button
+from .tools import SlideBar, display_text, Button
 import random
 
 color_bar = {'R': (255, 0, 0),

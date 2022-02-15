@@ -1,7 +1,7 @@
 import random
 import pygame
-from snake import Snake
-from utils import get_empty_space
+from .snake import Snake
+from .utils import get_empty_space
 
 class Grid:
     BACKGROUND_COLOR = (150, 150, 150)

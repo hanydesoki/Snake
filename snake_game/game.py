@@ -1,10 +1,10 @@
 import json
 import pygame
-from grid import Grid
-from menu_layout import Menu
-from menu_layout import SCORE_PATH, COLOR_PATH
-from tools import display_text
-from color_layout import ColorLayout
+from .grid import Grid
+from .menu_layout import Menu
+from .menu_layout import SCORE_PATH, COLOR_PATH
+from .tools import display_text
+from .color_layout import ColorLayout
 
 class Game:
 
