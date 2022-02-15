@@ -2,6 +2,7 @@ import json
 import os
 import pygame
 from .tools import Button, display_text
+from . import __version__
 
 SCORE_PATH = 'Saves/scores.json'
 COLOR_PATH = 'Saves/snake_color.json'
@@ -99,6 +100,7 @@ class Menu:
         self.lose_background.set_alpha(2 * self.frame)
 
         self.screen.blit(self.lose_background, (0, 0))
+        display_text(self.screen, __version__, 570, 585, size=15)
 
 
         if self.boot_menu:
