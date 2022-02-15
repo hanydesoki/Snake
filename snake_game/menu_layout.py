@@ -3,8 +3,11 @@ import os
 import pygame
 from .tools import Button, display_text
 
-SCORE_PATH = 'scores.json'
-COLOR_PATH = 'snake_color.json'
+SCORE_PATH = 'Saves/scores.json'
+COLOR_PATH = 'Saves/snake_color.json'
+
+if not os.path.exists('Saves'):
+    os.mkdir('Saves')
 
 difficulty_speed = {'Very Easy': 32,
                       'Easy': 16,
