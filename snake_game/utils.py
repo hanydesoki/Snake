@@ -1,10 +1,7 @@
 
 def check_similar_element(squares):
-    for element in squares:
-        if squares.count(element) > 1:
-            return True
-
-    return False
+        head = squares[0]
+        return squares.count(head) > 1
 
 def check_boundaries(squares, boundaries):
     max_i = max(max(squares, key=lambda s: s[0]))
