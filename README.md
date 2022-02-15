@@ -6,4 +6,4 @@ A classic snake game with pygame.
 - Scores and highscores
 
 Run main.py in the Snake directory to play the game. 
-You need to install the pygame module to run the program.
+You need to install the pygame module to run the program. (Use pip install -r requirements.txt to install it)
