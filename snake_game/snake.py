@@ -39,6 +39,7 @@ class Snake:
         self.apple_tile.fill(self.APPLE_COLOR)
 
         self.direction = 'neutral'
+        self.intention = 'neutral'
 
         self.frames = 0
         self.frame_to_update = 10
@@ -67,6 +68,9 @@ class Snake:
 
     def update_squares(self):
         old_squares = self.squares.copy()
+
+        self.direction = self.intention
+
 
         if self.direction != 'neutral':
             if self.direction == 'up':
@@ -143,13 +147,13 @@ class Snake:
                 self.direction = 'down'
 
         if (keys[pygame.K_UP] or keys[pygame.K_z]) and not self.direction == 'down':
-            self.direction = 'up'
+            self.intention = 'up'
         elif (keys[pygame.K_DOWN] or keys[pygame.K_s]) and not self.direction == 'up':
-            self.direction = 'down'
+            self.intention = 'down'
         elif (keys[pygame.K_LEFT] or keys[pygame.K_q]) and not self.direction == 'right':
-            self.direction = 'left'
+            self.intention= 'left'
         elif (keys[pygame.K_RIGHT] or keys[pygame.K_d]) and not self.direction == 'left':
-            self.direction = 'right'
+            self.intention = 'right'
 
         #if keys[pygame.K_SPACE]:
         #    self.update_squares()
