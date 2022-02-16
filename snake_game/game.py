@@ -3,7 +3,7 @@ import sys
 import pygame
 from .grid import Grid
 from .menu_layout import Menu
-from .menu_layout import SCORE_PATH, COLOR_PATH
+from .menu_layout import SCORE_PATH, COLOR_PATH, SETTING_PATH
 from .tools import display_text
 from .color_layout import ColorLayout
 
@@ -50,6 +50,10 @@ class Game:
 
                     with open(COLOR_PATH, 'w') as f:
                         json.dump(self.menu.colors, f)
+
+
+                    with open(SETTING_PATH, 'w') as f:
+                        json.dump(self.menu.settings, f)
                     pygame.quit()
                     sys.exit()
 

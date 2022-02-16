@@ -37,6 +37,13 @@ class ColorLayout:
         self.head_slidebars['G'].set_current_value(255)
         self.body_slidebars['G'].set_current_value(200)
 
+
+        for color, sb in zip(self.menu.settings['Last colors']['head_color'], self.head_slidebars.values()):
+            sb.set_current_value(color)
+
+        for color, sb in zip(self.menu.settings['Last colors']['body_color'], self.body_slidebars.values()):
+            sb.set_current_value(color)
+
         self.set_color_button = Button(self.screen, 400, 300, 'Set color', size=20)
         self.random_color_button = Button(self.screen, 100, 300, 'Random', size=20)
         self.save_button = Button(self.screen, 40, 360, 'Save', size=15)
@@ -135,6 +142,9 @@ class ColorLayout:
             self.menu.game.grid.body_color = self.get_body_color()
             self.menu.game.grid.head_color = self.get_head_color()
             self.menu.choosing_color = False
+
+            self.menu.settings['Last colors']['head_color'] = self.get_head_color()
+            self.menu.settings['Last colors']['body_color'] = self.get_body_color()
 
         if self.random_color_button.check_released():
             self.set_random_color()

@@ -6,6 +6,7 @@ from . import __version__
 
 SCORE_PATH = 'Saves/scores.json'
 COLOR_PATH = 'Saves/snake_color.json'
+SETTING_PATH = 'Saves/settings.json'
 
 if not os.path.exists('Saves'):
     os.mkdir('Saves')
@@ -46,7 +47,6 @@ class Menu:
         if os.path.exists(SCORE_PATH):
             with open(SCORE_PATH, 'r') as f:
                 self.scores = json.load(f)
-
         else:
             self.scores = {'Very Easy': 0,
                       'Easy': 0,
@@ -54,17 +54,32 @@ class Menu:
                       'Hard': 0,
                       'Very Hard': 0}
 
+
         if os.path.exists(COLOR_PATH):
             with open(COLOR_PATH, 'r') as f:
                 self.colors = json.load(f)
         else:
             self.colors = {}
 
+        if os.path.exists(SETTING_PATH):
+            with open(SETTING_PATH) as f:
+                self.settings = json.load(f)
+
+        else:
+            self.settings = {'Last difficulty indice': 2,
+                             'Last colors': {'head_color': [0, 255, 0],
+                                             'body_color': [0, 200, 0]}}
+
+
+
         self.difficulties = list(self.scores)
 
-        self.difficulty_indice = 2
+        self.difficulty_indice = self.settings['Last difficulty indice']
 
         self.last_difficulty = self.difficulties[self.difficulty_indice]
+
+        self.game.grid.head_color = tuple(self.settings['Last colors']['head_color'])
+        self.game.grid.body_color = tuple(self.settings['Last colors']['body_color'])
 
         self.last_score = 0
 
@@ -151,11 +166,13 @@ class Menu:
                 if self.difficulty_indice < len(self.difficulties) - 1:
                     self.game.grid.snake.size = self.game.grid.snake.init_size
                     self.difficulty_indice += 1
+                    self.settings['Last difficulty indice'] = self.difficulty_indice
 
             if self.decrease_button.check_released() or key_pressed in [pygame.K_DOWN, pygame.K_s]:
                 if self.difficulty_indice > 0:
                     self.game.grid.snake.size = self.game.grid.snake.init_size
                     self.difficulty_indice -= 1
+                    self.settings['Last difficulty indice'] = self.difficulty_indice
 
         self.game.grid.snake.frame_to_update = difficulty_speed[self.difficulty]
 
