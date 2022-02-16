@@ -1,4 +1,5 @@
 import json
+import sys
 import pygame
 from .grid import Grid
 from .menu_layout import Menu
@@ -50,13 +51,13 @@ class Game:
                     with open(COLOR_PATH, 'w') as f:
                         json.dump(self.menu.colors, f)
                     pygame.quit()
-                    exit()
+                    sys.exit()
 
             self.draw_background()
             if self.grid.snake.playing:
                 self.grid.update(all_events)
-                display_text(self.screen, f'{self.menu.difficulty}', 100, 20, size=30)
-                display_text(self.screen, f'High score: {self.menu.scores[self.menu.difficulty]}', 400, 20, size=30)
+                display_text(self.screen, f'{self.menu.difficulty}', 100, 10, size=20)
+                display_text(self.screen, f'High score: {self.menu.scores[self.menu.difficulty]}', 400, 10, size=20)
             else:
                 if self.menu.choosing_color:
                     self.color_layout.update()

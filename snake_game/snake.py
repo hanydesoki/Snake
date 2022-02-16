@@ -123,10 +123,10 @@ class Snake:
 
         if self.paused:
             self.screen.blit(self.pause_background, (0, 0))
-            display_text(self.screen, 'Paused', 20, 570, size=30)
+            display_text(self.screen, 'Paused', 20, 570, size=20)
 
     def draw_score(self):
-        display_text(self.screen, f'SCORE: {self.score}', 250, 20, size=30)
+        display_text(self.screen, f'SCORE: {self.score}', 250, 10, size=20)
 
 
     @property

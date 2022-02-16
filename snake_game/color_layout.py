@@ -37,9 +37,9 @@ class ColorLayout:
         self.head_slidebars['G'].set_current_value(255)
         self.body_slidebars['G'].set_current_value(200)
 
-        self.set_color_button = Button(self.screen, 400, 300, 'Set color', size=25)
-        self.random_color_button = Button(self.screen, 100, 300, 'Random', size=25)
-        self.save_button = Button(self.screen, 40, 360, 'Save', size=25)
+        self.set_color_button = Button(self.screen, 400, 300, 'Set color', size=20)
+        self.random_color_button = Button(self.screen, 100, 300, 'Random', size=20)
+        self.save_button = Button(self.screen, 40, 360, 'Save', size=15)
 
         self.update_snake_preview()
 
@@ -109,7 +109,7 @@ class ColorLayout:
         if self.display_message:
             display_text(self.screen,
                          'Cannot add a new snake to favorite, please delete a snake with a right click',
-                         20, 580, 20)
+                         20, 580, 15)
 
     def draw_snake(self):
 

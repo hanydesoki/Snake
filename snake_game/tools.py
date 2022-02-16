@@ -1,7 +1,7 @@
 import pygame
 
 def display_text(screen, text, x, y, size=10, color=(255, 255, 255)):
-    text_base_font = pygame.font.Font(None, size)
+    text_base_font = pygame.font.SysFont('comicsansms', size)
     text_surface = text_base_font.render(str(text), True, color)
 
     screen.blit(text_surface, (x, y))
@@ -19,7 +19,7 @@ class Button:
         self.x = x
         self.y = y
 
-        base_font = pygame.font.Font(None, int(size))
+        base_font = pygame.font.SysFont('comicsansms', int(size))
         self.text_surface = base_font.render(str(text), True, self.WHITE)
         self.width = self.text_surface.get_width() * 1.4
         self.height = self.text_surface.get_height() * 1.4
@@ -151,10 +151,10 @@ class SlideBar:
         self.screen.blit(fill_surf, (self.x, self.y - 1))
         self.screen.blit(self.curs_surf, self.curs_rect)
 
-        text_base_font = pygame.font.Font(None, 15)
+        text_base_font = pygame.font.SysFont('comicsansms', 15)
         text_surface = text_base_font.render(self.name, True, (255, 255, 255))
 
-        value_base_font = pygame.font.Font(None, 20)
+        value_base_font = pygame.font.SysFont('comicsansms', 15)
         value_surface = value_base_font.render(str(self.current_value), True, (255, 255, 255))
 
         if self.moving:
@@ -162,8 +162,8 @@ class SlideBar:
         else:
             self.curs_surf.fill((230, 230, 230))
 
-        self.screen.blit(text_surface, (self.x - len(self.name) * 11, self.bar_rect.y - 5))
-        self.screen.blit(value_surface, (self.x + self.width + 10, self.bar_rect.y - 5))
+        self.screen.blit(text_surface, (self.x - len(self.name) * 11, self.bar_rect.y - 10))
+        self.screen.blit(value_surface, (self.x + self.width + 10, self.bar_rect.y - 10))
 
     def get_current_value(self):
         return self.current_value

@@ -33,15 +33,15 @@ class Menu:
         self.lose_background.set_alpha(0)
 
         self.background.set_alpha(200)
-        self.play_button = Button(self.screen, 250, 320, 'Play', size=50)
+        self.play_button = Button(self.screen, 250, 320, 'Play', size=40)
         self.boot_menu = True
 
-        self.increase_button = Button(self.screen, 200, 500, ' + ', size=20)
-        self.decrease_button = Button(self.screen, 200, 530, ' - ', size=25)
+        self.increase_button = Button(self.screen, 200, 500, ' + ', size=10)
+        self.decrease_button = Button(self.screen, 200, 530, ' - ', size=10)
 
         self.choosing_color = False
 
-        self.color_button = Button(self.screen, 450, 400, 'Colors', size=20)
+        self.color_button = Button(self.screen, 450, 380, 'Colors', size=15)
 
         if os.path.exists(SCORE_PATH):
             with open(SCORE_PATH, 'r') as f:
@@ -89,7 +89,7 @@ class Menu:
         self.screen.blit(self.background, (0, 0))
 
     def draw(self):
-        display_text(self.screen, 'SNAKE', 235, 50, size=60)
+        display_text(self.screen, 'SNAKE', 235, 50, size=40)
 
         if self.game.grid.snake.lose:
             self.last_score = self.game.grid.snake.score
@@ -100,18 +100,18 @@ class Menu:
         self.lose_background.set_alpha(2 * self.frame)
 
         self.screen.blit(self.lose_background, (0, 0))
-        display_text(self.screen, __version__, 570, 585, size=15)
+        display_text(self.screen, __version__, 570, 585, size=10)
 
 
         if self.boot_menu:
-            display_text(self.screen, f'High Score: {self.scores[self.difficulty]}', 195, 200, size=50)
+            display_text(self.screen, f'High Score: {self.scores[self.difficulty]}', 190, 200, size=40)
         else:
-            display_text(self.screen, f'High Score: {self.scores[self.difficulty]}', 195, 150, size=50)
+            display_text(self.screen, f'High Score: {self.scores[self.difficulty]}', 190, 150, size=40)
             if self.game.grid.snake.score > self.scores[self.difficulty]:
                 self.scores[self.difficulty] = self.game.grid.snake.score
 
             if self.difficulty == self.last_difficulty:
-                display_text(self.screen, f'Score: {self.last_score}', 230, 230, size=50)
+                display_text(self.screen, f'Score: {self.last_score}', 230, 230, size=40)
 
         for i in range(4):
             if i == 0:
@@ -128,7 +128,7 @@ class Menu:
             surf.fill(color)
             self.screen.blit(surf, (475, 430 + i*15))
 
-        display_text(self.screen, self.difficulty, 230, 515, size=30)
+        display_text(self.screen, self.difficulty, 230, 510, size=20)
 
     def check_button(self, all_events):
         if self.play_button.check_released() or pygame.key.get_pressed()[pygame.K_SPACE]:
